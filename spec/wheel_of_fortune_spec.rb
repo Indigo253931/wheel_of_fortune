@@ -15,18 +15,20 @@ RSpec.describe WheelOfFortune, :type => :model do
   before(:each) do
     @game = WheelOfFortune.new({theme: theme, phrase: phrase})
   end
+end
 
   describe "#initialize" do
     it "accepts a single argument in the form of a hash" do
       expect { @game }.not_to raise_error #lazy eval initalizes game here
     end
+
     it "accesses the hash for keys :phrase and :theme (and assigns them to an instance variable!)" do
       hash = instance_double("Hash")
       expect(hash).to receive(:[]).with(:phrase)
       expect(hash).to receive(:[]).with(:theme)
       WheelOfFortune.new(hash)
     end
-  end
+  
 
   describe "#theme" do
     it "displays the theme" do
@@ -126,5 +128,4 @@ RSpec.describe WheelOfFortune, :type => :model do
       expect( @game.game_over? ).to be false
     end
   end
-
 end

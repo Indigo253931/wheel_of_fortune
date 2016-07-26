@@ -1,14 +1,20 @@
 class WheelOfFortune
-  def initialize
-    p "Happy coding!"
-  end
+  attr_reader :guesses, :theme
+
+  def initialize(game)
+    @theme = game[:theme]
+    @phrase = game[:phrase]
+    end
+
+    def guesses 
+      @guesses = []
+    end
 
   def to_s
     nil
   end
 
   def can_i_have?(input)
-    nil
   end
 
   def game_over?
